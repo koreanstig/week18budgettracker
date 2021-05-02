@@ -44,5 +44,17 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
+  <script>
+    if ('service worker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then((reg) => {
+          console.log('We found your file!!')
+        })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+    };
+  </script>
 </body>
 </html>
